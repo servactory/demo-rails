@@ -39,6 +39,11 @@ Naming/VariableNumber:
     - normalcase
     - non_integer
 
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'config/application.rb'
+
 Style/Documentation:
   Enabled: false
 
