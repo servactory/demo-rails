@@ -1,24 +1,19 @@
-# README
+# Servactory Rails Demo App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Servactory uses [Rails](https://github.com/rails/rails) this demo application.
 
-Things you may want to cover:
+To run the project locally, first install the dependencies:
 
-* Ruby version
+```bash
+bundle install
+```
 
-* System dependencies
+Next, run the development server:
 
-* Configuration
+```bash
+bundle exec rails server
+```
 
-* Database creation
+## License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Servactory Rails Demo App is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
