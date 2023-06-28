@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :users, only: %i[], defaults: { format: :json } do
+    collection do
+      post :create_with_preview
+    end
+  end
 end
