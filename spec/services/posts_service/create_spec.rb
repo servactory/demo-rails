@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe PostsService::Create do
-  let(:user) { create :user }
+  let(:user) { create(:user) }
 
   describe ".call" do
     def perform(attributes:)
@@ -16,7 +16,7 @@ RSpec.describe PostsService::Create do
       }
     end
 
-    let(:blog) { create :blog, user: user }
+    let(:blog) { create(:blog, user: user) }
     let(:author) { user }
     let(:title) { Faker::Lorem.sentence }
 
