@@ -13,7 +13,7 @@ RSpec.describe BlogsService::Create do
       }
     end
 
-    let(:user) { create :user }
+    let(:user) { create(:user) }
     let(:title) { Faker::Lorem.sentence }
 
     context "when the input arguments are valid" do
