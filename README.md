@@ -1,6 +1,6 @@
 # Servactory Rails Demo App
 
-Servactory uses [Rails](https://github.com/rails/rails) this demo application.
+Servactory uses [Rails](https://github.com/rails/rails) for this demo application.
 
 To run the project locally, first install the dependencies:
 
