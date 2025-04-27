@@ -8,9 +8,9 @@ RSpec.describe UsersService::Create do
 
     let(:attributes) do
       {
-        first_name: first_name,
-        middle_name: middle_name,
-        last_name: last_name
+        first_name:,
+        middle_name:,
+        last_name:
       }
     end
 
@@ -21,7 +21,7 @@ RSpec.describe UsersService::Create do
     context "when the input arguments are valid" do
       describe "and the data required for work is also valid" do
         it "returns expected data" do
-          result = perform(attributes: attributes)
+          result = perform(attributes:)
 
           expect(result.user).to eq(User.sole)
         end
@@ -29,18 +29,29 @@ RSpec.describe UsersService::Create do
     end
 
     context "when the input arguments are invalid" do
-      context "when `first_name`" do
-        it_behaves_like "input required check", name: :first_name
-        it_behaves_like "input type check", name: :first_name, expected_type: String
+      it do
+        expect { perform(attributes:) }.to(
+          have_input(:first_name)
+            .type(String)
+            .required
+        )
       end
 
-      context "when `middle_name`" do
-        it_behaves_like "input type check", name: :middle_name, expected_type: String
+      it do
+        expect { perform(attributes:) }.to(
+          have_input(:middle_name)
+            .type(String)
+            .required
+            .default(nil)
+        )
       end
 
-      context "when `last_name`" do
-        it_behaves_like "input required check", name: :last_name
-        it_behaves_like "input type check", name: :last_name, expected_type: String
+      it do
+        expect { perform(attributes:) }.to(
+          have_input(:last_name)
+            .type(String)
+            .required
+        )
       end
     end
   end

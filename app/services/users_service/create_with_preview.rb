@@ -14,7 +14,7 @@ class UsersService::CreateWithPreview < ApplicationService::Base
   make :create_event_log!
 
   stage do
-    wrap_in ->(methods:) { ActiveRecord::Base.transaction { methods.call } }
+    wrap_in ->(methods:, **) { ActiveRecord::Base.transaction { methods.call } }
     rollback :clear_data_and_fail!
 
     make :create_user!
@@ -55,7 +55,7 @@ class UsersService::CreateWithPreview < ApplicationService::Base
     internals.event_log.update!(status: :completed)
   end
 
-  def clear_data_and_fail!(_e)
+  def clear_data_and_fail!(_exception)
     internals.event_log.update!(status: :failed)
 
     fail!(message: "Failed to create preview")

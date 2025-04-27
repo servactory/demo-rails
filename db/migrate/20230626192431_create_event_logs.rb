@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateEventLogs < ActiveRecord::Migration[7.0]
+class CreateEventLogs < ActiveRecord::Migration[8.0]
   def change
     create_table :event_logs do |t|
       t.string :code, null: false

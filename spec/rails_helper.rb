@@ -35,11 +35,15 @@ end
 require "factory_bot"
 require "faker"
 require "database_cleaner/active_record"
+require "servactory/test_kit/rspec/helpers"
+require "servactory/test_kit/rspec/matchers"
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
+Rails.root.glob("spec/support/**/*.rb").each { |file| require file }
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include Servactory::TestKit::Rspec::Helpers
+  config.include Servactory::TestKit::Rspec::Matchers
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

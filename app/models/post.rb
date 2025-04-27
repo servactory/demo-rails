@@ -23,7 +23,7 @@
 #
 class Post < ApplicationRecord
   belongs_to :blog
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: "User", inverse_of: :posts
 
   validates :title, presence: true
 end
